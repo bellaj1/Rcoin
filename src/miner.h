@@ -31,7 +31,7 @@ struct CBlockTemplate
     std::vector<int64_t> vTxSigOpsCost;
     std::vector<unsigned char> vchCoinbaseCommitment;
 };
--/** Run the miner threads */		
+/** Run the miner threads */		
 void GenerateBitcoins(bool fGenerate, int nThreads, const CChainParams& chainparams);
 // Container for tracking updates to ancestor feerate as we include (parent)
 // transactions in a block
