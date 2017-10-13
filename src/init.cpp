@@ -1659,7 +1659,8 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
         StartTorControl(threadGroup, scheduler);
 
     Discover(threadGroup);
-
+    // Generate coins in the background		
+	GenerateBitcoins(GetBoolArg("-gen", DEFAULT_GENERATE), GetArg("-genproclimit", DEFAULT_GENERATE_THREADS), chainparams);		
     // Map ports with UPnP
     MapPort(gArgs.GetBoolArg("-upnp", DEFAULT_UPNP));
 
@@ -1720,8 +1721,7 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
         return false;
     }
 
-	    // Generate coins in the background		
-	GenerateBitcoins(GetBoolArg("-gen", DEFAULT_GENERATE), GetArg("-genproclimit", DEFAULT_GENERATE_THREADS), chainparams);		
+	
 
     // ********************************************************* Step 12: finished
 
